@@ -4,7 +4,11 @@ const nextConfig = {
         remotePatterns:[
             {
                 protocol: 'https',
-                hostname: 'alternative.me',
+                hostname: 'alternative.me'
+            },
+            {
+                protocol: 'https',
+                hostname: 's2.coinmarketcap.com'
             }
         ]
     }
