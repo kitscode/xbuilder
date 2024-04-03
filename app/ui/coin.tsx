@@ -1,24 +1,24 @@
 import Image from 'next/image';
-import React from 'react';
 
-export default function Coin({imageUrl, name, price, marketCap}: {
+export default function Coin({ imageUrl, name, price, marketCap }: {
     imageUrl: string;
     name: string;
     price: string;
     marketCap: string;
 }) {
     return (
-        <div className="coin-card">
+        <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white text-center p-5 m-2">
             <Image
                 src={imageUrl}
                 alt={name}
                 width={100}
                 height={100}
                 objectFit="contain"
+                className="mx-auto"
             />
-            <h2>{name}</h2>
-            <p>Price: {price}</p>
-            <p>Market Cap: {marketCap}</p>
+            <h2 className="font-bold text-xl mb-2">{name}</h2>
+            <p className="text-gray-700 text-base">Price: {price}</p>
+            <p className="text-gray-700 text-base">Market Cap: {marketCap}</p>
         </div>
     );
 };
