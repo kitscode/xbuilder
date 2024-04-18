@@ -5,10 +5,6 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'alternative.me'
-            },
-            {
-                protocol: 'https',
-                hostname: 's2.coinmarketcap.com'
             }
         ]
     }

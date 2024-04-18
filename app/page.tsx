@@ -1,6 +1,6 @@
-import Link from "next/link";
+'use client'
 import Image from 'next/image';
-import Coin from "@/app/ui/coin";
+import CoinList from "@/app/ui/coinList";
 
 export default function Home() {
     return (
@@ -12,12 +12,7 @@ export default function Home() {
                 width={300}
                 height={300}
             />
-            <Link href="/ahr999">ahr999</Link>
-            <Coin imageUrl={"/btc.png"}
-                  name={"BTC"}
-                  price={"70,000"}
-                  marketCap={"1,366,254,691,154"}>
-            </Coin>
+            <CoinList/>
         </main>
     );
 }

@@ -21,3 +21,5 @@ let eth = {
     "last_historical_data": "2024-04-03T08:50:00.000Z",
     "platform": null
 }
+
+let gecko_api = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=2&page=1&sparkline=false"
