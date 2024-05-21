@@ -23,6 +23,7 @@ export default function Ahr999Chart() {
             const data = await response.json();
             setFeed(data);
         }
+
         fetchData();
     }, []);
 
@@ -42,6 +43,36 @@ export default function Ahr999Chart() {
         buyAtTheBottomList.push(0.45);
     });
 
+    const options = {
+        responsive: true,
+        interaction: {
+            mode: 'index' as const,
+            intersect: false,
+        },
+        stacked: false,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Bitcoin Ahr999 Index',
+            },
+        },
+        scales: {
+            y: {
+                type: 'linear' as const,
+                display: true,
+                position: 'left' as const,
+            },
+            y1: {
+                type: 'linear' as const,
+                display: true,
+                position: 'right' as const,
+                grid: {
+                    drawOnChartArea: false,
+                },
+            },
+        },
+    };
+
     const data = {
         labels: timestampList,
         datasets: [
@@ -53,6 +84,7 @@ export default function Ahr999Chart() {
                 hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
                 hoverBorderColor: 'rgba(75, 192, 192, 1)',
                 data: ahr999IndexList,
+                yAxisID: 'y',
             },
             {
                 label: 'BTC Price',
@@ -62,6 +94,7 @@ export default function Ahr999Chart() {
                 hoverBackgroundColor: 'rgba(255, 99, 132, 0.4)',
                 hoverBorderColor: 'rgba(255, 99, 132, 1)',
                 data: btcPriceList,
+                yAxisID: 'y1',
             },
             {
                 label: '200 Day Cost',
@@ -71,6 +104,7 @@ export default function Ahr999Chart() {
                 hoverBackgroundColor: 'rgba(54, 162, 235, 0.4)',
                 hoverBorderColor: 'rgba(54, 162, 235, 1)',
                 data: daysCostList,
+                yAxisID: 'y1',
             },
             {
                 label: 'Fixed Investment',
@@ -80,6 +114,7 @@ export default function Ahr999Chart() {
                 hoverBackgroundColor: 'rgba(255, 206, 86, 0.4)',
                 hoverBorderColor: 'rgba(255, 206, 86, 1)',
                 data: fixedInvestmentList,
+                yAxisID: 'y',
             },
             {
                 label: 'Buy at the bottom',
@@ -89,18 +124,10 @@ export default function Ahr999Chart() {
                 hoverBackgroundColor: 'rgba(153, 102, 255, 0.4)',
                 hoverBorderColor: 'rgba(153, 102, 255, 1)',
                 data: buyAtTheBottomList,
+                yAxisID: 'y',
             },
         ],
     };
 
-    const options = {
-        // maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true,
-            },
-        },
-    };
-
-    return <Line data={data} options={options}/>;
+    return <Line options={options} data={data}/>;
 }
