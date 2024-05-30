@@ -78,41 +78,23 @@ export default function Ahr999Chart() {
         datasets: [
             {
                 label: 'Ahr999 Index',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
-                hoverBorderColor: 'rgba(75, 192, 192, 1)',
+                pointRadius: 0, // 去掉y1轴上的圆圈
+                hoverBackgroundColor: 'rgba(54, 162, 235, 0.4)',
+                hoverBorderColor: 'rgba(54, 162, 235, 1)',
                 data: ahr999IndexList,
                 yAxisID: 'y',
             },
             {
-                label: 'BTC Price',
+                label: 'Fixed Investment',
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1,
+                borderWidth: 2, // 增加y轴线的粗细
+                pointRadius: 0, // 去掉y轴上的圆圈
                 hoverBackgroundColor: 'rgba(255, 99, 132, 0.4)',
                 hoverBorderColor: 'rgba(255, 99, 132, 1)',
-                data: btcPriceList,
-                yAxisID: 'y1',
-            },
-            {
-                label: '200 Day Cost',
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(54, 162, 235, 0.4)',
-                hoverBorderColor: 'rgba(54, 162, 235, 1)',
-                data: daysCostList,
-                yAxisID: 'y1',
-            },
-            {
-                label: 'Fixed Investment',
-                backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                borderColor: 'rgba(255, 206, 86, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255, 206, 86, 0.4)',
-                hoverBorderColor: 'rgba(255, 206, 86, 1)',
                 data: fixedInvestmentList,
                 yAxisID: 'y',
             },
@@ -120,12 +102,35 @@ export default function Ahr999Chart() {
                 label: 'Buy at the bottom',
                 backgroundColor: 'rgba(153, 102, 255, 0.2)',
                 borderColor: 'rgba(153, 102, 255, 1)',
-                borderWidth: 1,
+                borderWidth: 2, // 增加y轴线的粗细
+                pointRadius: 0, // 去掉y轴上的圆圈
                 hoverBackgroundColor: 'rgba(153, 102, 255, 0.4)',
                 hoverBorderColor: 'rgba(153, 102, 255, 1)',
                 data: buyAtTheBottomList,
                 yAxisID: 'y',
             },
+            {
+                label: 'BTC Price',
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1,
+                pointRadius: 0, // 去掉y1轴上的圆圈
+                hoverBackgroundColor: 'rgba(255, 159, 64, 0.4)',
+                hoverBorderColor: 'rgba(255, 159, 64, 1)',
+                data: btcPriceList,
+                yAxisID: 'y1',
+            },
+            {
+                label: '200 Day Cost',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                pointRadius: 0, // 去掉y1轴上的圆圈
+                hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
+                hoverBorderColor: 'rgba(75, 192, 192, 1)',
+                data: daysCostList,
+                yAxisID: 'y1',
+            }
         ],
     };
 
