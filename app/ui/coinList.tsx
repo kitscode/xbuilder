@@ -22,7 +22,7 @@ const CoinList = () => {
             {coins.map((coin: any, index) => (
                 <Coin
                     key={index}
-                    imageUrl={"/" + coin.symbol + ".png"}
+                    imageUrl={"/" + coin.symbol.toLowerCase() + ".png"}
                     name={coin.symbol}
                     price={Number(coin.price_usd).toLocaleString()}
                     marketCap={Number(coin.market_cap_usd).toLocaleString()}
