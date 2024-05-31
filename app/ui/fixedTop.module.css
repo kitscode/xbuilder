@@ -1,0 +1,30 @@
+.fixedTop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.item {
+    color: #333;
+}
+
+.value {
+    color: #1a73e8;
+    margin-left: 5px;
+}
+
+.percentage {
+    color: red;
+    margin-left: 5px;
+}
