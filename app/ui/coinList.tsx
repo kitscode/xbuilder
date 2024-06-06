@@ -18,7 +18,7 @@ const CoinList = () => {
     }, []);
 
     return (
-        <div style={{ display: "flex" }}>
+        <div style={{display: "flex"}}>
             {coins.map((coin: any, index) => (
                 <Coin
                     key={index}
