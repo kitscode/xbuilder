@@ -24,7 +24,12 @@
     margin-left: 5px;
 }
 
-.percentage {
+.percentage_red {
     color: red;
+    margin-left: 5px;
+}
+
+.percentage_green {
+    color: green;
     margin-left: 5px;
 }

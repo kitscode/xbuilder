@@ -13,7 +13,6 @@ const CoinList = () => {
             const data = await response.json();
             setCoins(data);
         };
-
         fetchData();
     }, []);
 

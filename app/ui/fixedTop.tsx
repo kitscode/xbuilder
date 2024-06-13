@@ -1,28 +1,85 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './fixedTop.module.css';
 
-const FixedTopModule = () => {
+const FixedTop = () => {
+    const [snpIndex, setSnpIndex] = useState({
+        "index": 0.00,
+        "percent_change_24h": 0
+    });
+
+    const [sseIndex, setSseIndex] = useState({
+        "index": 0.00,
+        "percent_change_24h": 0
+    });
+    const [btcIndex, setBtcIndex] = useState({
+        "price_usd": 0.00,
+        "percent_change_24h": 0
+    });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("/api/snp500");
+            const snp_data = (await response.json())["chart"]["result"][0]["meta"];
+            const index = snp_data["regularMarketPrice"];
+            const previousClose = snp_data["previousClose"];
+            const change = ((index - previousClose) / previousClose * 100).toFixed(2);
+            setSnpIndex({
+                "index": index,
+                "percent_change_24h": parseFloat(change)
+            });
+        };
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("https://qt.gtimg.cn/q=sh000001");
+            const data = await response.text();
+            const numbers = data.split("~")
+            setSseIndex({
+                "index": parseFloat(numbers[3]),
+                "percent_change_24h": parseFloat(numbers[32])
+            });
+        };
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("https://api.coinlore.net/api/ticker/?id=90");
+            const btc_data = (await response.json())[0];
+            setBtcIndex({
+                "price_usd": btc_data.price_usd,
+                "percent_change_24h": btc_data.percent_change_24h
+            });
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className={styles.fixedTop}>
             <div className={styles.container}>
                 <div className={styles.item}>
-                    A <span className={styles.value}>$127,381,188,456</span> <span
-                    className={styles.percentage}>-1.92%</span>
+                    S&P500
+                    <span className={styles.value}>{snpIndex.index}</span>
+                    <span className={styles.percentage_red}>{snpIndex.percent_change_24h}%</span>
                 </div>
                 <div className={styles.item}>
-                    B <span className={styles.value}>$69,472,009,791</span> <span
-                    className={styles.percentage}>-0.51%</span>
+                    SSE
+                    <span className={styles.value}>{sseIndex.index}</span>
+                    <span className={styles.percentage_red}>{sseIndex.percent_change_24h}%</span>
                 </div>
                 <div className={styles.item}>
-                    C <span className={styles.value}>$123,643,002</span> <span
-                    className={styles.percentage}>-19.68%</span>
-                </div>
-                <div className={styles.item}>
-                    D <span className={styles.value}>50.39%/49.61%</span>
+                    BTC
+                    <span className={styles.value}>{btcIndex.price_usd}</span>
+                    <span
+                        className={`${btcIndex.percent_change_24h >= 0 ? styles.percentage_green : styles.percentage_red}`}>
+                    {btcIndex.percent_change_24h}%
+                    </span>
                 </div>
             </div>
         </div>
     );
 };
 
-export default FixedTopModule;
+export default FixedTop;
