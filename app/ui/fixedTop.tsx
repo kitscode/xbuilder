@@ -69,6 +69,7 @@ const FixedTop = () => {
                     <span className={styles.value}>{sseIndex.index}</span>
                     <span
                         className={`${sseIndex.percent_change_24h >= 0 ? styles.percentage_green : styles.percentage_red}`}>
+                        {sseIndex.percent_change_24h >= 0 ? '+' : ''}
                         {sseIndex.percent_change_24h}%
                     </span>
                 </div>
@@ -77,7 +78,8 @@ const FixedTop = () => {
                     <span className={styles.value}>{btcIndex.price_usd}</span>
                     <span
                         className={`${btcIndex.percent_change_24h >= 0 ? styles.percentage_green : styles.percentage_red}`}>
-                    {btcIndex.percent_change_24h}%
+                        {btcIndex.percent_change_24h >= 0 ? '+' : ''}
+                        {btcIndex.percent_change_24h}%
                     </span>
                 </div>
             </div>

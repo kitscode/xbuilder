@@ -11,6 +11,7 @@ export default function Home() {
                 <FixedTop/>
             </div>
             <div style={{display: "flex"}}>
+                {/* See How The Value Goes */}
                 {/*<Image*/}
                 {/*    src="https://alternative.me/crypto/fear-and-greed-index.png"*/}
                 {/*    alt="Latest Crypto Fear & Greed Index"*/}
@@ -22,6 +23,12 @@ export default function Home() {
                 {/*<Ahr999Chart/>*/}
                 <Source name={"Assets By Market Cap"} url={"https://companiesmarketcap.com/assets-by-market-cap"}
                         tag={"Index"} description={"Assets By Market Cap"}/>
+                <Source name={"World Stats"} url={"https://tradingeconomics.com/matrix"}
+                        tag={"Index"} description={"World Stats"}/>
+                <Source name={"Stocks"} url={"https://tradingeconomics.com/stocks"}
+                        tag={"Index"} description={"World Main Stocks"}/>
+                <Source name={"Central Bank Rates"} url={"https://en.macromicro.me/central_bank/overview"}
+                        tag={"Rate"} description={"Central Bank Rates Overview"}/>
                 <Source name={"Crypto Fear & Greed Index"} url={"https://alternative.me/crypto/fear-and-greed-index"}
                         tag={"Index"} description={"Crypto Fear & Greed Index"}/>
                 <Source name={"Ahr999 Index"} url={"https://www.coinglass.com/pro/i/ahr999"} tag={"Index"}
