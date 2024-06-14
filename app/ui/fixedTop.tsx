@@ -19,13 +19,10 @@ const FixedTop = () => {
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch("/api/snp500");
-            const snp_data = (await response.json())["chart"]["result"][0]["meta"];
-            const index = snp_data["regularMarketPrice"];
-            const previousClose = snp_data["previousClose"];
-            const change = ((index - previousClose) / previousClose * 100).toFixed(2);
+            const data = await response.json();
             setSnpIndex({
-                "index": index,
-                "percent_change_24h": parseFloat(change)
+                "index": data.index,
+                "percent_change_24h": data.percent_change_24h
             });
         };
         fetchData();
@@ -62,12 +59,18 @@ const FixedTop = () => {
                 <div className={styles.item}>
                     S&P500
                     <span className={styles.value}>{snpIndex.index}</span>
-                    <span className={styles.percentage_red}>{snpIndex.percent_change_24h}%</span>
+                    <span
+                        className={`${snpIndex.percent_change_24h >= 0 ? styles.percentage_green : styles.percentage_red}`}>
+                        {snpIndex.percent_change_24h >= 0 ? '+' : ''}
+                        {snpIndex.percent_change_24h}%</span>
                 </div>
                 <div className={styles.item}>
                     SSE
                     <span className={styles.value}>{sseIndex.index}</span>
-                    <span className={styles.percentage_red}>{sseIndex.percent_change_24h}%</span>
+                    <span
+                        className={`${sseIndex.percent_change_24h >= 0 ? styles.percentage_green : styles.percentage_red}`}>
+                        {sseIndex.percent_change_24h}%
+                    </span>
                 </div>
                 <div className={styles.item}>
                     BTC
