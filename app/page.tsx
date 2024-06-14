@@ -20,12 +20,13 @@ export default function Home() {
                 {/*<CoinList/>*/}
                 {/*<Link href="/ahr999">ahr999</Link>*/}
                 {/*<Ahr999Chart/>*/}
-                <Source name={"CompaniesMarketCap"} url={"https://companiesmarketcap.com/assets-by-market-cap"}
-                        tag={"Index"} description={"Bitcoin Ahr999 Index"}/>
-                <Source name={"Fear & Greed Index"} url={"https://alternative.me/crypto/fear-and-greed-index"}
+                <Source name={"Assets By Market Cap"} url={"https://companiesmarketcap.com/assets-by-market-cap"}
+                        tag={"Index"} description={"Assets By Market Cap"}/>
+                <Source name={"Crypto Fear & Greed Index"} url={"https://alternative.me/crypto/fear-and-greed-index"}
                         tag={"Index"} description={"Crypto Fear & Greed Index"}/>
-                <Source name={"Ahr999"} url={"https://www.coinglass.com/pro/i/ahr999"} tag={"Index"}
+                <Source name={"Ahr999 Index"} url={"https://www.coinglass.com/pro/i/ahr999"} tag={"Index"}
                         description={"Bitcoin Ahr999 Index"}/>
+                <Source name={"Who Runs China"} url={"https://news.cgtn.com/event/2019/whorunschina/index.html"} tag={"graph"} description={"Who Runs China By CGTN"}/>
             </div>
         </main>
     );
