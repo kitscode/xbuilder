@@ -47,6 +47,17 @@ export default function Home() {
                         tag={"Index, Crypto"} description={"Bitcoin Ahr999 Index"}/>
                 <Source name={"Gas Price Tracker"} url={"https://cointool.app/gasPrice/eth"} tag={"Index"}
                         description={"ETH Gas Price Tracker"}/>
+                <a href="https://www.csustan.edu/sites/default/files/groups/Writing%20Program/forgetting_curve.pdf" target="_blank">
+                    <Image
+                        src="/overcoming_the_curve.png"
+                        alt="overcoming the curve"
+                        width={500}
+                        height={500}
+                    />
+                </a>
+            </div>
+            <div style={{display: "flex"}}>
+
             </div>
         </main>
     );
